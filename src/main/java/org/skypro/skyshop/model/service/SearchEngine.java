@@ -9,11 +9,12 @@ import org.skypro.skyshop.model.exceptions.BestResultNotFound;
 import org.skypro.skyshop.model.search.Searchable;
 import org.skypro.skyshop.model.service.LenthStringComparator;
 import org.skypro.skyshop.model.product.Product;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
         import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
+@Service
 public class SearchEngine {
 
     private Set<Searchable> searchables = new HashSet<>();

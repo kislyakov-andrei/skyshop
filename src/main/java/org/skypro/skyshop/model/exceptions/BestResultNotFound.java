@@ -1,7 +1,9 @@
 package org.skypro.skyshop.model.exceptions;
 
-import java.io.IOException;
+import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+@Component
 public class BestResultNotFound extends IOException {
     String searchTerm;
     public BestResultNotFound (String searchTerm){

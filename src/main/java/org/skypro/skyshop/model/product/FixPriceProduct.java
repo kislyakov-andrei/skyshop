@@ -1,16 +1,17 @@
 package org.skypro.skyshop.model.product;
 
 import org.skypro.skyshop.model.search.Searchable;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
-
+@Component
 public class FixPriceProduct extends Product {
-    // private final UUID id;
     private double FIX_PRICE = 50.0;
     private double cost;
+    private UUID id;
 
-    public FixPriceProduct(String name) {
-        super (name, id);
+    public FixPriceProduct(UUID id,String name) {
+        super (id,name);
 
         this.cost = FIX_PRICE;
     }

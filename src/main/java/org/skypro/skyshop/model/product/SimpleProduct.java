@@ -2,17 +2,17 @@ package org.skypro.skyshop.model.product;
 
 import org.skypro.skyshop.model.exceptions.PriceException;
 import org.skypro.skyshop.model.search.Searchable;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
-
+@Component
 public class SimpleProduct extends Product {
     private double cost;
+    private UUID id;
 
-
-    public SimpleProduct(String name, double cost) {
-        super(name, id);
-
-        if (cost <= 0) {
+    public SimpleProduct(UUID id,String name, double cost) {
+        super(id,name);
+           if (cost <= 0) {
             throw new PriceException(name);
         }
         this.cost = cost;

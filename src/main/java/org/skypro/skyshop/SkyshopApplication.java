@@ -24,14 +24,14 @@ public class SkyshopApplication {
 		SpringApplication.run(SkyshopApplication.class, args);
 		try {
 
-			Product product = new DiscountedProduct("сахар", 100.0, 10);
-			Product product1 = new SimpleProduct("Хлеб", 120.0);
-			Product product2 = new SimpleProduct("соль", 20);
-			Product product3 = new DiscountedProduct("масло", 320.0, 20);
-			Product product4 = new FixPriceProduct("масло");
-			Product product5 = new SimpleProduct("хлеб", 310);
-			Product product6 = new FixPriceProduct("водка");
-			Product product7 = new FixPriceProduct("масло");
+			Product product = new DiscountedProduct(UUID.randomUUID(),"сахар", 100.0, 10);
+			Product product1 = new SimpleProduct(UUID.randomUUID(),"Хлеб", 120.0);
+			Product product2 = new SimpleProduct(UUID.randomUUID(),"соль", 20);
+			Product product3 = new DiscountedProduct(UUID.randomUUID(),"масло", 320.0, 20);
+			Product product4 = new FixPriceProduct(UUID.randomUUID(),"масло");
+			Product product5 = new SimpleProduct(UUID.randomUUID(),"хлеб", 310);
+			Product product6 = new FixPriceProduct(UUID.randomUUID(),"водка");
+			Product product7 = new FixPriceProduct(UUID.randomUUID(),"масло");
 			printSeparator();
 			ProductBasket basket = new ProductBasket();
 			basket.addProduct(product);
@@ -70,11 +70,11 @@ public class SkyshopApplication {
 			printSeparator();
 			System.out.println("Поиск");
 			System.out.println();
-			Article article1 = new Article("Хлеб", "История создания продукта");
-			Article article2 = new Article("Крепкие алкогольные напитки, водка", "Русская водка - рецепт домашнего приготовления");
-			Article article3 = new Article("Хлеб всему голова", "Интересные факты о появлении хлеба на столе славянских народов.Сорта хлеба.");
-			Article article4 = new Article("Соль", "Может ли человек прожить без соли");
-			Article article5 = new Article("Хлопушка", "Шумные развлечения на праздники");
+			Article article1 = new Article(UUID.randomUUID(),"Хлеб", "История создания продукта");
+			Article article2 = new Article(UUID.randomUUID(),"Крепкие алкогольные напитки, водка", "Русская водка - рецепт домашнего приготовления");
+			Article article3 = new Article(UUID.randomUUID(),"Хлеб всему голова", "Интересные факты о появлении хлеба на столе славянских народов.Сорта хлеба.");
+			Article article4 = new Article(UUID.randomUUID(),"Соль", "Может ли человек прожить без соли");
+			Article article5 = new Article(UUID.randomUUID(),"Хлопушка", "Шумные развлечения на праздники");
 
 			SearchEngine searchable = new SearchEngine();
 

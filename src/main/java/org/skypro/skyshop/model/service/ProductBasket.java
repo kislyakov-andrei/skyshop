@@ -3,8 +3,9 @@ package org.skypro.skyshop.model.service;
 import java.util.*;
 
 import org.skypro.skyshop.model.product.Product;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class ProductBasket {
 
     Map<String, List<Product>> basket = new HashMap<>();
