@@ -8,14 +8,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 import java.util.UUID;
-@Component
+
 public class Article implements Searchable {
     private final String titleArticle;
     private final String contentArticle;
     private static final String TYPEARTICLE = "ARTICLE";
     private final UUID id;
 
-    public Article(UUID id,String titleArticle, String contentArticle) {
+    public Article(UUID id, String titleArticle, String contentArticle) {
         this.id = id;
         this.titleArticle = titleArticle;
         this.contentArticle = contentArticle;
@@ -33,7 +33,8 @@ public class Article implements Searchable {
     public String toString() {
         return "\n" + titleArticle + ":\n" + contentArticle;
     }
-@JsonIgnore
+
+    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return titleArticle + "-" + contentArticle;

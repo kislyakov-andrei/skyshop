@@ -1,13 +1,10 @@
-package org.skypro.skyshop.model.exceptions;
+package org.skypro.skyshop.exceptions;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class DiscountException extends IllegalArgumentException{
     String name;
 
-    public DiscountException( String name) {
-        this.name = name;
+    public DiscountException(String name) {
+         this.name = name;
     }
 
     @Override

@@ -1,10 +1,9 @@
-package org.skypro.skyshop.model.exceptions;
-
-import org.springframework.stereotype.Component;
+package org.skypro.skyshop.exceptions;
 
 public class PriceException extends IllegalArgumentException {
     private String name;
-public PriceException(String name) {
+
+    public PriceException(String name) {
         this.name = name;
     }
 

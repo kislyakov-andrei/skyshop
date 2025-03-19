@@ -2,20 +2,20 @@ package org.skypro.skyshop.model.product;
 
 import java.util.Objects;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.skypro.skyshop.model.exceptions.NameException;
-import org.skypro.skyshop.model.search.Searchable;
-import org.springframework.stereotype.Component;
 
-import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.skypro.skyshop.exceptions.NameException;
+import org.skypro.skyshop.model.search.Searchable;
+
 import java.util.UUID;
-@Component
+
 public abstract class Product implements Searchable {
     protected String name;
-    private final UUID id;
+    protected final UUID id;
     private static final String TYPEPRODUCT = "PRODUCT";
 
-    protected Product(UUID id,String name) throws NameException {
+ public Product(UUID id,String name) throws NameException {
 
         if (name == null || name.isBlank()) {
             throw new NameException();

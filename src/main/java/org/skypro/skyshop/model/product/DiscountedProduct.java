@@ -1,16 +1,14 @@
 package org.skypro.skyshop.model.product;
 
 
-import org.skypro.skyshop.model.exceptions.DiscountException;
-import org.skypro.skyshop.model.exceptions.PriceException;
+import org.skypro.skyshop.exceptions.DiscountException;
+import org.skypro.skyshop.exceptions.PriceException;
 import org.skypro.skyshop.model.search.Searchable;
-import org.springframework.stereotype.Component;
 
 import java.util.UUID;
-@Component
+
 public class DiscountedProduct extends Product {
     private double cost;
-    private UUID id;
     private int discount;
 
     public DiscountedProduct(UUID id,String name, double cost, int discount) {
@@ -49,8 +47,5 @@ public class DiscountedProduct extends Product {
         return 0;
     }
 
-    @Override
-    public UUID getId() {
-        return id;
-    }
+
 }
