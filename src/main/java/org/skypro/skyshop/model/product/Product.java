@@ -3,7 +3,6 @@ package org.skypro.skyshop.model.product;
 import java.util.Objects;
 
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.exceptions.NameException;
 import org.skypro.skyshop.model.search.Searchable;
@@ -15,7 +14,7 @@ public abstract class Product implements Searchable {
     protected final UUID id;
     private static final String TYPEPRODUCT = "PRODUCT";
 
- public Product(UUID id,String name) throws NameException {
+    public Product(UUID id, String name) throws NameException {
 
         if (name == null || name.isBlank()) {
             throw new NameException();
@@ -39,6 +38,7 @@ public abstract class Product implements Searchable {
         return name + " : " + getCost();
     }
 
+    @JsonIgnore
     @Override
     public String getType() {
         return TYPEPRODUCT;

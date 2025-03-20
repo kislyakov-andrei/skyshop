@@ -1,5 +1,6 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +26,7 @@ public class FixPriceProduct extends Product {
     public String toString() {
         return name + " : Фиксированная цена " + cost;
     }
+    @JsonIgnore
     @Override
     public boolean isSpecial(){
         return true;

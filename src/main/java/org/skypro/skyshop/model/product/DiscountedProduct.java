@@ -1,6 +1,7 @@
 package org.skypro.skyshop.model.product;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.exceptions.DiscountException;
 import org.skypro.skyshop.exceptions.PriceException;
 import org.skypro.skyshop.model.search.Searchable;
@@ -11,8 +12,8 @@ public class DiscountedProduct extends Product {
     private double cost;
     private int discount;
 
-    public DiscountedProduct(UUID id,String name, double cost, int discount) {
-        super(id,name);
+    public DiscountedProduct(UUID id, String name, double cost, int discount) {
+        super(id, name);
 
 
         if (cost <= 0) {
@@ -37,6 +38,7 @@ public class DiscountedProduct extends Product {
         return name + " : " + cost + " (" + discount + "% )";
     }
 
+    @JsonIgnore
     @Override
     public boolean isSpecial() {
         return true;

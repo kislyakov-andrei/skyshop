@@ -24,18 +24,25 @@ public class StorageService {
         UUID id2=UUID.randomUUID();
         productStorage.put(id2, new DiscountedProduct(id2,"сахар", 100.0, 10));
         UUID id3=UUID.randomUUID();
-        productStorage.put(id3, new FixPriceProduct(id3,"вода минеральная");
+        productStorage.put(id3, new FixPriceProduct(id3,"вода минеральная"));
+        UUID id4=UUID.randomUUID();
+        productStorage.put(id4, new DiscountedProduct(id4,"масло", 320.0, 20));
+        UUID id5=UUID.randomUUID();
+        articleStorage.put(id5, new Article(id5,"хлеб", "История создания продукта"));
+        UUID id6= UUID.randomUUID();
+        articleStorage.put(id6, new Article(id6,"соль", "Может ли человек прожить без соли"));
 
     }
 
     public Collection<Product> getAllProducts() {
-
         return productStorage.values();
     }
 
     public Collection<Article> getAllArticles() {
+
         return articleStorage.values();
     }
+
     public Collection<Searchable> getAll (){
         ArrayList<Searchable> list = new ArrayList<>();
         list.addAll(getAllProducts());

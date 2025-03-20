@@ -40,6 +40,7 @@ public class Article implements Searchable {
         return titleArticle + "-" + contentArticle;
     }
 
+    @JsonIgnore
     @Override
     public String getType() {
         return TYPEARTICLE;

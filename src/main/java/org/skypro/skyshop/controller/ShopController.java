@@ -31,10 +31,12 @@ public class ShopController {
 
     @GetMapping("/articles")
     public Collection<Article> getAllArticles() {
+
         return storageService.getAllArticles();
     }
+
     @GetMapping("/search")
-    public Collection<SearchResult> search(@RequestParam String q){
+    public Collection<SearchResult> search(@RequestParam String q) {
         return searchService.search(q);
     }
 }
