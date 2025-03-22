@@ -1,9 +1,11 @@
 package org.skypro.skyshop.model.search;
 
+import org.springframework.stereotype.Component;
+
 import java.util.UUID;
 
 import static java.sql.DatabaseMetaData.typeSearchable;
-
+@Component
 public interface Searchable {
     String getSearchTerm();
 

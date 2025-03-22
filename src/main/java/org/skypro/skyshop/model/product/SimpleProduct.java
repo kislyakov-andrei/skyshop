@@ -1,6 +1,7 @@
 package org.skypro.skyshop.model.product;
 
-import org.skypro.skyshop.model.exceptions.PriceException;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.skypro.skyshop.exceptions.PriceException;
 import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.UUID;
@@ -8,10 +9,8 @@ import java.util.UUID;
 public class SimpleProduct extends Product {
     private double cost;
 
-
-    public SimpleProduct(String name, double cost) {
-        super(name, id);
-
+    public SimpleProduct(UUID id, String name, double cost) {
+        super(id, name);
         if (cost <= 0) {
             throw new PriceException(name);
         }
@@ -28,6 +27,7 @@ public class SimpleProduct extends Product {
         return "\n" + name + " : " + cost;
     }
 
+    @JsonIgnore
     @Override
     public boolean isSpecial() {
         return false;
@@ -38,8 +38,5 @@ public class SimpleProduct extends Product {
         return 0;
     }
 
-    @Override
-    public UUID getId() {
-        return id;
-    }
+
 }

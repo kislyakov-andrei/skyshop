@@ -1,16 +1,17 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.model.search.Searchable;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
 public class FixPriceProduct extends Product {
-    // private final UUID id;
     private double FIX_PRICE = 50.0;
     private double cost;
 
-    public FixPriceProduct(String name) {
-        super (name, id);
+    public FixPriceProduct(UUID id,String name) {
+        super (id,name);
 
         this.cost = FIX_PRICE;
     }
@@ -25,6 +26,7 @@ public class FixPriceProduct extends Product {
     public String toString() {
         return name + " : Фиксированная цена " + cost;
     }
+    @JsonIgnore
     @Override
     public boolean isSpecial(){
         return true;
@@ -35,8 +37,5 @@ public class FixPriceProduct extends Product {
         return 0;
     }
 
-    @Override
-    public UUID getId() {
-        return id;
-    }
+
 }

@@ -1,4 +1,4 @@
-package org.skypro.skyshop.model.exceptions;
+package org.skypro.skyshop.exceptions;
 
 public class PriceException extends IllegalArgumentException {
     private String name;

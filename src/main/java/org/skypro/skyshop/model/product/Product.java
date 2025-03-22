@@ -2,24 +2,25 @@ package org.skypro.skyshop.model.product;
 
 import java.util.Objects;
 
-import org.skypro.skyshop.model.exceptions.NameException;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.skypro.skyshop.exceptions.NameException;
 import org.skypro.skyshop.model.search.Searchable;
 
-import java.util.Objects;
 import java.util.UUID;
 
 public abstract class Product implements Searchable {
     protected String name;
-    private final UUID id;
+    protected final UUID id;
     private static final String TYPEPRODUCT = "PRODUCT";
 
-    public Product(String name, UUID id) throws NameException {
+    public Product(UUID id, String name) throws NameException {
 
         if (name == null || name.isBlank()) {
             throw new NameException();
         }
         this.name = name;
-        this.id = UUID.randomUUID();
+        this.id = id;
     }
 
     public String getName() {
@@ -37,11 +38,13 @@ public abstract class Product implements Searchable {
         return name + " : " + getCost();
     }
 
+    @JsonIgnore
     @Override
     public String getType() {
         return TYPEPRODUCT;
     }
 
+    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return getName();

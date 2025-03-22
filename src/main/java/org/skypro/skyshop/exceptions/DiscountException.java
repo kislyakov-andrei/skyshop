@@ -1,10 +1,10 @@
-package org.skypro.skyshop.model.exceptions;
+package org.skypro.skyshop.exceptions;
 
 public class DiscountException extends IllegalArgumentException{
     String name;
 
-    public DiscountException( String name) {
-        this.name = name;
+    public DiscountException(String name) {
+         this.name = name;
     }
 
     @Override

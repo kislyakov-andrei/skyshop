@@ -2,7 +2,9 @@ package org.skypro.skyshop.model.article;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.model.search.Searchable;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -13,8 +15,8 @@ public class Article implements Searchable {
     private static final String TYPEARTICLE = "ARTICLE";
     private final UUID id;
 
-    public Article(String titleArticle, String contentArticle) {
-        this.id = UUID.randomUUID();
+    public Article(UUID id, String titleArticle, String contentArticle) {
+        this.id = id;
         this.titleArticle = titleArticle;
         this.contentArticle = contentArticle;
     }
@@ -32,11 +34,13 @@ public class Article implements Searchable {
         return "\n" + titleArticle + ":\n" + contentArticle;
     }
 
+    @JsonIgnore
     @Override
     public String getSearchTerm() {
         return titleArticle + "-" + contentArticle;
     }
 
+    @JsonIgnore
     @Override
     public String getType() {
         return TYPEARTICLE;
