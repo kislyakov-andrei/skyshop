@@ -17,8 +17,11 @@ public class StorageService {
 
     private final Map<UUID, Product> productStorage = new HashMap<>();
     private final Map<UUID, Article> articleStorage=new HashMap<>();
+    private final Map<UUID,Product> availableProducts;
 
-    public StorageService() {
+    public StorageService(Map<UUID, Product> availableProducts) {
+        this.availableProducts = availableProducts;
+
         UUID id1=UUID.randomUUID();
         productStorage.put(id1, new SimpleProduct(id1,"Хлеб", 120.0));
         UUID id2=UUID.randomUUID();
@@ -48,6 +51,9 @@ public class StorageService {
         list.addAll(getAllProducts());
         list.addAll(getAllArticles());
         return list;
+    }
+    public Optional<Product> getProductById(UUID id) {
+        return Optional.ofNullable(availableProducts.get(id));
     }
 
 }
