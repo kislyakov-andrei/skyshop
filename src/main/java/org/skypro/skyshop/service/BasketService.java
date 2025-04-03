@@ -18,7 +18,7 @@ public class BasketService {
         this.productBasket = productBasket;
         this.storageService = storageService;
     }
-    public void addProductToBasket (UUID id) {
+    public void addProductToBasket(UUID id) {
         Optional<Product> productOptional = storageService.getProductById(id);
         if (!productOptional.isPresent()) {
             throw new IllegalArgumentException("Продукт с id " + id + " не существует.");
@@ -27,9 +27,8 @@ public class BasketService {
     }
 
     public UserBasket getUserBasket() {
-        Map<UUID, Integer> basketItems = (Map<UUID, Integer>) getUserBasket().getItems();
 
-        List<BasketItem> items = basketItems.entrySet().stream()
+        List<BasketItem> items = productBasket.getProducts().entrySet().stream()
                 .map(entry -> {
                     UUID productId = entry.getKey();
                     int quantity = entry.getValue();

@@ -8,8 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-@SessionScope
 @Component
+@SessionScope
 public class ProductBasket {
     private final Map<UUID, Integer> products = new HashMap<>();
 
